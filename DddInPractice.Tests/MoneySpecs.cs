@@ -46,6 +46,15 @@ namespace DddInPractice.Tests
             dollar.GetHashCode().Should().NotBe(hundredCents.GetHashCode());
         }
 
+        [Fact]
+        public void Two_money_instances_amount_is_equal_if_equivalent_money_amounts()
+        {
+            Money dollar = new Money(0, 0, 0, 1, 0, 0);
+            Money hundredCents = new Money(100, 0, 0, 0, 0, 0);
+
+            dollar.Amount.Should().Be(hundredCents.Amount);
+        }
+
         [Theory]
         [InlineData(-1, 0, 0, 0, 0, 0)]
         [InlineData(0, -2, 0, 0, 0, 0)]
